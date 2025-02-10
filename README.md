@@ -28,7 +28,7 @@ library("randomForest")
 Set the correct working directory.
 
 ``` r
-setwd("C:/GIS_for_env_applications/LU_classification")
+setwd("LU_classification")
 ```
 
 ## Analysis
@@ -36,7 +36,7 @@ setwd("C:/GIS_for_env_applications/LU_classification")
 In order to perform land use classification, we will follow the steps
 shown in the flowchart below.
 
-<img src="workflow.png" style="width:50.0%" />
+<img src="res/workflow.png" style="width:50.0%" />
 
 ## Preprossessing the data
 
@@ -59,7 +59,7 @@ We can define a path variable, which will hold the folder path from/to
 which data will be taken/saved.
 
 ``` r
-path <- "C:/GIS_for_env_applications/Land_Cover_classification/Sentinel_bands"
+path <- "Sentinel_bands"
 ```
 
 **Clipping bands**
@@ -288,7 +288,7 @@ rfmodel <- tuneRF(x = training.Data[-ncol(training.Data)],
 )
 ```
 
-<img src="mtry.png" style="width:50.0%" />
+<img src="res/mtry.png" style="width:50.0%" />
 
 tuneRF directly outputs a plot that shows OOB error depending on the
 mtry. We can output more accuracy parameters by calling the rfmodel
@@ -304,7 +304,7 @@ rfmodel
 plot(rfmodel)
 ```
 
-<img src="ntree.png" style="width:75.0%" />
+<img src="res/ntree.png" style="width:75.0%" />
 
 ``` r
 #check the importance of each variable
@@ -312,7 +312,7 @@ plot(rfmodel)
 varImpPlot(rfmodel)
 ```
 
-<img src="importance.png" style="width:50.0%" />
+<img src="res/importance.png" style="width:50.0%" />
 
 If you are satisfied with the accuracy of the trained model you can use
 it to perform LU classification for the whole of Augsburg.
